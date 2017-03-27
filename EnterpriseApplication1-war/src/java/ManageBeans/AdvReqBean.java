@@ -53,8 +53,6 @@ public class AdvReqBean {
         try {
             dao.delete(selectedAdvertising);
             FacesContext.getCurrentInstance().getExternalContext().redirect("./managerIndex.xhtml");
-        } catch (SQLException ex) {
-            Logger.getLogger(UsersReqBean.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(AdvReqBean.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -65,11 +63,7 @@ public class AdvReqBean {
         Object newValue = event.getNewValue();
         Advertising adv = advertisings.get(event.getRowIndex());
         if (newValue != null && !newValue.equals(oldValue)) {
-            try {
-                dao.update(adv);
-            } catch (SQLException ex) {
-                Logger.getLogger(UsersReqBean.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            dao.update(adv);
         }
     }
 
@@ -105,11 +99,7 @@ public class AdvReqBean {
 
     @PostConstruct
     public void allAdvertisings() {
-        try {
-            advertisings = dao.getAll();
-        } catch (SQLException | ParseException ex) {
-            Logger.getLogger(AdvReqBean.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        advertisings = dao.getAll();
     }
 
     public FacesMessage getMsg() {

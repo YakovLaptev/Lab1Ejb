@@ -14,10 +14,10 @@ public class Dao {
 
     DataSource ds;
     Connection connection;
-    static final String DRIVER = "com.mysql.jdbc.Driver";
-    static final String URL = "jdbc:mysql://localhost/advertisingagency?useSSL=false";
-    static final String LOGIN = "root";
-    static final String PASSWORD = "root";
+    //static final String DRIVER = "com.mysql.jdbc.Driver";
+    //static final String URL = "jdbc:mysql://localhost/advertisingagency?useSSL=false";
+    //static final String LOGIN = "root";
+    //static final String PASSWORD = "root";
 
     public Dao() {
 

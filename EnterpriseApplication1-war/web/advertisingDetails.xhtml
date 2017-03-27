@@ -20,23 +20,23 @@
                         <div class="a"></div> 
                     </nav>
                 </div>
-                <h2>Подробнее о #{DetailReqBean.advDetail.name}</h2>
+                <h2>Подробнее о #{AdvSelectSessionBean.selectedAdvertising.name}</h2>
                 <div class="det">
                     <h3>Категория</h3>
-                    <h:outputText value="#{DetailReqBean.advDetail.category}"/>
+                    <h:outputText value="#{AdvSelectSessionBean.selectedAdvertising.category}"/>
                     <h3>Название акции</h3>
-                    <h:outputText value="#{DetailReqBean.advDetail.campaignName}"/>
+                    <h:outputText value="#{AdvSelectSessionBean.selectedAdvertising.campaignName}"/>
                     <h3>Краткое описание</h3>
-                    <h:outputText value="#{DetailReqBean.advDetail.briefDescription}"/>
+                    <h:outputText value="#{AdvSelectSessionBean.selectedAdvertising.briefDescription}"/>
                     <h3>Цена</h3>
-                    <h:outputText value="#{DetailReqBean.advDetail.price}"/>
+                    <h:outputText value="#{AdvSelectSessionBean.selectedAdvertising.price}"/>
                     <h3>Полное описание</h3>
-                    <h:outputText value="#{DetailReqBean.advDetail.fullDescription}"/>                    
+                    <h:outputText value="#{AdvSelectSessionBean.selectedAdvertising.fullDescription}"/>                    
                 </div>
                 <h:form>
                 <div style="text-align: center">
                     <c:if test="#{request.remoteUser != null}">
-                        <h:commandButton action="#{AdvReqBean.makeOrder(DetailReqBean.advDetail.name)}" class="button" style="width:10%;height: 30px;margin: 10px;" value="Оформить заказ"/>  
+                        <h:commandButton action="#{AdvReqBean.makeOrder(AdvSelectSessionBean.selectedAdvertising.name)}" class="button" style="width:10%;height: 30px;margin: 10px;" value="Оформить заказ"/>  
                     </c:if> 
                     <c:if test="#{request.remoteUser == null}">
                         <h:commandButton class="button" style="width:10%;height: 30px;margin: 10px;background-color: #BFBCBC;" value="Оформить заказ"/>

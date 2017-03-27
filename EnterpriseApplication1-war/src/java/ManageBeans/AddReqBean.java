@@ -31,7 +31,7 @@ public class AddReqBean {
         try {
             advdao.create(newAdv);
             FacesContext.getCurrentInstance().getExternalContext().redirect("./managerIndex.xhtml");
-        } catch (SQLException | IOException ex) {
+        } catch (IOException ex) {
             Logger.getLogger(AddReqBean.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

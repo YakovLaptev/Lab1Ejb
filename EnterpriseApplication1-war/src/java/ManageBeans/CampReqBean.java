@@ -4,7 +4,6 @@ import JavaBeans.Campaign;
 import Dao.CampaignDAO;
 import Dao.IDAORemote;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;

@@ -19,11 +19,6 @@
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
     <managed-bean>
-        <managed-bean-name>DetailReqBean</managed-bean-name>
-        <managed-bean-class>ManageBeans.DetailReqBean</managed-bean-class>    
-        <managed-bean-scope>request</managed-bean-scope>
-    </managed-bean>
-    <managed-bean>
         <managed-bean-name>NotifReqBean</managed-bean-name>
         <managed-bean-class>ManageBeans.NotifReqBean</managed-bean-class>    
         <managed-bean-scope>request</managed-bean-scope>
@@ -71,4 +66,9 @@
             <to-view-id>/error.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    <managed-bean>
+        <managed-bean-name>AdvSelectSessionBean</managed-bean-name>
+        <managed-bean-class>ManageBeans.AdvSelectSessionBean</managed-bean-class>
+    
+        <managed-bean-scope>session</managed-bean-scope></managed-bean>
 </faces-config>

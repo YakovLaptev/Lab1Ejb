@@ -63,7 +63,7 @@
                                     #{adv.campaignName}
                             </h:column>
                             <h:column>
-                                <h:commandButton action="#{AdvReqBean.setSelectedAdv(adv.name)}" class="button" style="float: none; width: 75%" value="Подробнее / Заказать"/>
+                                <h:commandButton action="#{advSessionBean.setSelectedAdvName(adv.name)}" class="button" style="float: none; width: 75%" value="Подробнее / Заказать"/>
                             </h:column>
                         </h:dataTable>   
                     </h:form>

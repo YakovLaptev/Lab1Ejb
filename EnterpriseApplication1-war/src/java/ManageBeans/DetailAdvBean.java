@@ -1,14 +1,17 @@
 package ManageBeans;
 
+import Singleton.SltBean;
 import JavaBeans.Advertising;
 import Dao.IDAORemoteAdv;
 import java.io.Serializable;
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.ejb.Stateful;
 import javax.enterprise.context.Conversation;
 import javax.enterprise.context.ConversationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.interceptor.Interceptors;
 
 /**
  *
@@ -24,16 +27,27 @@ public class DetailAdvBean implements IDetailAdvBean, Serializable {
     @EJB
     private IDAORemoteAdv advdao;
     private Advertising selectedAdvertising;
+    private String selectedName;
+ 
 
-    @Override
-    public Advertising getSelectedAdvertising() {
+    @Override   
+    @Interceptors(SltBean.class)
+    public Advertising getSelectedAdvertising() {      
         return selectedAdvertising;
     }
-
-    @Override
-    public void setSelectedAdvertising(String name) {
+    
+    @Override 
+    public void setSelectedName(String name) {
         conv.begin();
-        this.selectedAdvertising = advdao.getByName(name);
-        conv.end();
+        this.selectedName = name;
+        conv.end();       
+        
+    }
+    
+    
+    @PostConstruct
+    public void makeSelection() {
+        selectedAdvertising = advdao.getByName(selectedName);
+        
     }
 }

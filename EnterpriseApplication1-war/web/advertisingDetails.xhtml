@@ -42,6 +42,10 @@
                         <h:commandButton class="button" style="width:10%;height: 30px;margin: 10px;background-color: #BFBCBC;" value="Оформить заказ"/>
                     </c:if>                                       
                     <h2><a href="#" onclick="history.back()" style="text-decoration: none; color: #4F54AE">Назад</a></h2>
+                <div>
+                    <h4>Количество просмотров "Подробнее"</h4>
+                    <h:outputText value="#{AdvSelectSessionBean.numberOfCalls}"/>
+                </div>
                 </div>
                     </h:form>
             </div>

@@ -10,5 +10,5 @@ import javax.ejb.Local;
 @Local
 public interface IDetailAdvBean {
     public Advertising getSelectedAdvertising();
-    public void setSelectedAdvertising(String name);
+    public void setSelectedName(String name);
 }

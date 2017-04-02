@@ -31,15 +31,15 @@ public class DetailAdvBean implements IDetailAdvBean, Serializable {
 
     public void makeSelection() {
         selectedAdvertising = advdao.getByName(selectedName);
+        if (!conv.isTransient()) {
+            conv.end();
+        }
     }
 
     @Override
     @Interceptors(SltBean.class)
     public Advertising getSelectedAdvertising() {
         makeSelection();
-        if (!conv.isTransient()) {
-            conv.end();
-        }
         return selectedAdvertising;
     }
 

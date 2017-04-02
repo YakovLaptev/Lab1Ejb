@@ -28,26 +28,26 @@ public class DetailAdvBean implements IDetailAdvBean, Serializable {
     private IDAORemoteAdv advdao;
     private Advertising selectedAdvertising;
     private String selectedName;
- 
 
-    @Override   
-    @Interceptors(SltBean.class)
-    public Advertising getSelectedAdvertising() {      
-        return selectedAdvertising;
-    }
-    
-    @Override 
-    public void setSelectedName(String name) {
-        conv.begin();
-        this.selectedName = name;
-        conv.end();       
-        
-    }
-    
-    
-    @PostConstruct
     public void makeSelection() {
         selectedAdvertising = advdao.getByName(selectedName);
-        
+    }
+
+    @Override
+    @Interceptors(SltBean.class)
+    public Advertising getSelectedAdvertising() {
+        makeSelection();
+        if (!conv.isTransient()) {
+            conv.end();
+        }
+        return selectedAdvertising;
+    }
+
+    @Override
+    public void setSelectedName(String name) {
+        if (conv.isTransient()) {
+            conv.begin();
+        }
+        this.selectedName = name;
     }
 }

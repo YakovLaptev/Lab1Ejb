@@ -3,12 +3,15 @@ package ManageBeans;
 import Singleton.SltBean;
 import JavaBeans.Advertising;
 import Dao.IDAORemoteAdv;
+import JavaBeans.SimpleEvent;
 import java.io.Serializable;
+import java.util.Date;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.ejb.Stateful;
 import javax.enterprise.context.Conversation;
 import javax.enterprise.context.ConversationScoped;
+import javax.enterprise.event.Event;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.interceptor.Interceptors;
@@ -24,6 +27,8 @@ public class DetailAdvBean implements IDetailAdvBean, Serializable {
 
     @Inject
     private Conversation conv;
+    @Inject
+    private Event<SimpleEvent> event;
     @EJB
     private IDAORemoteAdv advdao;
     private Advertising selectedAdvertising;
@@ -49,5 +54,9 @@ public class DetailAdvBean implements IDetailAdvBean, Serializable {
             conv.begin();
         }
         this.selectedName = name;
+        SimpleEvent sevent = new SimpleEvent();
+        sevent.setMessage("Был роведен просмотр подробностей о \"" + selectedName + "\"");
+        sevent.setDate(new Date(System.currentTimeMillis()));
+        event.fire(sevent);
     }
 }

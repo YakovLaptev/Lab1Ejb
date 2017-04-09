@@ -2,6 +2,7 @@ package ManageBeans;
 
 import Dao.IDAORemoteAdv;
 import JavaBeans.Advertising;
+import JavaBeans.SimpleEvent;
 import Singleton.SltBean;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -38,6 +39,10 @@ public class AdvSelectSessionBean {
     
     public int getNumberOfCalls() {
         return singleton.getCount();
+    }
+    
+    public SimpleEvent getEvent() {
+        return singleton.getEvent();
     }
 
     public void setSelectedAdvertising(Advertising selectedAdvertising) {

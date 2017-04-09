@@ -1,8 +1,10 @@
 package Singleton;
 
+import JavaBeans.SimpleEvent;
 import java.io.Serializable;
 import javax.ejb.LocalBean;
 import javax.ejb.Singleton;
+import javax.enterprise.event.Observes;
 import javax.interceptor.AroundInvoke;
 import javax.interceptor.InvocationContext;
 
@@ -14,6 +16,7 @@ import javax.interceptor.InvocationContext;
 @LocalBean
 public class SltBean implements Serializable {
     private int count;
+    private SimpleEvent event;
     
     public SltBean() {
         count = 0;
@@ -31,6 +34,14 @@ public class SltBean implements Serializable {
 
     public void setCount(int count) {
         this.count = count;
+    }
+    
+    public void setEvent(@Observes SimpleEvent event) {
+        this.event = event;
+    }
+
+    public SimpleEvent getEvent() {
+        return event;
     }
     
 }

@@ -61,7 +61,13 @@
                         </h:dataTable> 
                     </h:form>
                 </div>
-
+                <div>
+                    <br></br>
+                    <h4>События:</h4>
+                    <h:outputText value="Сообщение: #{AdvSelectSessionBean.event.message}"/>
+                    <br></br>
+                    <h:outputText value="Дата: #{AdvSelectSessionBean.event.date}"/>
+                </div>    
             </div>
         </h:body>
     </f:view>
